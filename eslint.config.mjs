@@ -1,20 +1,12 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import eslintPlugin from 'eslint-plugin-next';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-<<<<<<< HEAD
-const eslintConfig = [...compat.extends("next/core-web-vitals")];
-=======
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+export default [
+  {
+    plugins: {
+      next: eslintPlugin,
+    },
+    rules: {
+      // 여기에 원하는 eslint 설정 추가
+    },
+  },
 ];
->>>>>>> 63f9f19 (Initial commit from Create Next App)
-
-export default eslintConfig;
