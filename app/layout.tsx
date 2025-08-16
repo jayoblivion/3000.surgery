@@ -4,9 +4,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <header style={{ padding: '1rem', backgroundColor: '#f5f5f5' }}>
           <nav style={{ display: 'flex', gap: '1rem' }}>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/archive">Archive</a>
             <a href="/sounds">Sounds</a>
             <a href="/visuals">Visuals</a>
           </nav>
@@ -16,3 +13,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
