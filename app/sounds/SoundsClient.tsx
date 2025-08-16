@@ -60,10 +60,8 @@ export default function Sounds() {
     color: '#111',
     lineHeight: '1.6'
   }}>
-    코요테라디오<br />
+    코요테라디오 Coyote Radio <br />
     <span style={{ fontWeight: 400 }}>
-      Coyote Radio
-    </span>
   </h3>
 
   {/* YouTube */}
