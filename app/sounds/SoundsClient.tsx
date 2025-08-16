@@ -198,18 +198,18 @@ export default function Sounds() {
 
       {/* SoundCloud */}
       <iframe
-        width="100%"
-        height="166"
-        scrolling="no"
-        frameBorder="no"
-        allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/jiyo3000/onlykryptonite&color=%23333333&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-        style={{
-          borderRadius: '8px',
-          width: '100%',
-          boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)'
-        }}
-      />
+  width="100%"
+  height="166"
+  scrolling="no"
+  frameBorder="no"
+  allow="autoplay"
+  src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/jiyo3000/onlykryptonite&color=%23FF0000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+  style={{
+    borderRadius: '8px',
+    width: '100%',
+    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)'
+  }}
+/>
     </div>
   </section>
 )}
