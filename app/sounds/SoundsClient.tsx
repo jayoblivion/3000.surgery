@@ -167,6 +167,7 @@ export default function Sounds() {
       <h3 style={{
         fontSize: '1.125rem',
         fontWeight: 600,
+        marginTop: 0,
         marginBottom: '1.25rem',
         color: '#111',
         lineHeight: '1.6'
