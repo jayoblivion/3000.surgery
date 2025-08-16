@@ -1,3 +1,11 @@
+export const metadata = {
+  title: '3000.surgery',
+  description: '3000.surgery',
+  icons: {
+    icon: '/favicon.png', // public 폴더 기준 경로
+  },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ko">
@@ -13,4 +21,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-
