@@ -1,3 +1,6 @@
+export const metadata = {
+  title: 'Visuals | 3000',
+};
 export default function VisualsPage() {
   return (
     <section>
