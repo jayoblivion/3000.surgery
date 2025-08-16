@@ -52,19 +52,19 @@ export default function Sounds() {
   padding: '1rem',
   backgroundColor: '#f9f9f9'
 }}>
-  <h3 style={{
+<h3
+  style={{
     fontSize: '1.125rem',
     fontWeight: 600,
     marginTop: 0,
     marginBottom: '1.25rem',
     color: '#111',
-    lineHeight: '1.6'
-  }}>
-  코요테라디오 Coyote Radio <br />
-  <span style={{ fontWeight: 400 }}>
-    (YouTube & SoundCloud Link)
-  </span>
+    lineHeight: '1.6',
+  }}
+>
+  코요테라디오 Coyote Radio
 </h3>
+
 
   {/* YouTube */}
   <div style={{ marginBottom: '1.5rem' }}>
