@@ -2,7 +2,7 @@ export const metadata = {
   title: '3000.surgery',
   description: '3000.surgery',
   icons: {
-    icon: '/favicon.png', // public 폴더 기준 경로
+    icon: '/favicon_32x32.png', // public 폴더 기준 경로
   },
 };
 
