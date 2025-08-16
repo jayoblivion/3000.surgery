@@ -4,7 +4,7 @@ export default function Head() {
     <>
       <title>3000.surgery</title>
       <meta name="description" content="3000.surgery" />
-      <link rel="icon" type="image/png" href="/favicon.png" />
+      <link rel="icon" type="image/png" href="/favicon.ico" />
     </>
   );
 }
