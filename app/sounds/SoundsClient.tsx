@@ -150,26 +150,68 @@ export default function Sounds() {
       )}
 
       {/* REMIX 콘텐츠 */}
-      {tab === 'remix' && (
-        <section>
-          <h2 style={{ fontSize: '1.5rem', fontWeight: 500, marginBottom: '1rem' }}>Remix</h2>
+      {/* Remix 콘텐츠 */}
+{tab === 'remix' && (
+  <section>
+    <h2 style={{ fontSize: '1.5rem', fontWeight: 500, marginBottom: '1rem' }}>Remix</h2>
 
-          {/* 여기에 너가 원하는 remix 트랙 iframe 추가해줘 */}
-          <iframe
-            width="100%"
-            height="166"
-            scrolling="no"
-            frameBorder="no"
-            allow="autoplay"
-            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/YOUR_REMIX_TRACK_ID&color=%23000000&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-            style={{
-              borderRadius: '8px',
-              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
-              marginBottom: '2rem',
-            }}
-          />
-        </section>
-      )}
+    {/* only kryptonite remix 카드 */}
+    <div style={{
+      borderRadius: '8px',
+      boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
+      overflow: 'hidden',
+      marginBottom: '3rem',
+      padding: '1rem',
+      backgroundColor: '#f9f9f9'
+    }}>
+      <h3 style={{
+        fontSize: '1.125rem',
+        fontWeight: 600,
+        marginBottom: '1.25rem',
+        color: '#111',
+        lineHeight: '1.6'
+      }}>
+        only kryptonite<br />
+        <span style={{ fontWeight: 400 }}>
+          (don toliver, doja cat - lose my mind [From F1® The Movie] remix)
+        </span>
+      </h3>
+
+      {/* YouTube */}
+      <div style={{ marginBottom: '1.5rem' }}>
+        <iframe
+          width="100%"
+          height="315"
+          src="https://www.youtube.com/embed/BdMwi-is8Bw"
+          title="only kryptonite remix (YouTube)"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          style={{
+            borderRadius: '8px',
+            width: '100%',
+            boxShadow: '0 4px 16px rgba(0,0,0,0.1)'
+          }}
+        />
+      </div>
+
+      {/* SoundCloud */}
+      <iframe
+        width="100%"
+        height="166"
+        scrolling="no"
+        frameBorder="no"
+        allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/jiyo3000/onlykryptonite&color=%23333333&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+        style={{
+          borderRadius: '8px',
+          width: '100%',
+          boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)'
+        }}
+      />
+    </div>
+  </section>
+)}
     </main>
   );
 }
