@@ -1,12 +1,13 @@
 export const metadata = {
   title: 'Visuals | 3000',
 };
+
 export default function VisualsPage() {
   return (
-    <section>
-      <h2 style={{ fontSize: '1.5rem', fontWeight: 500, marginBottom: '1rem' }}>
+    <main style={{ padding: '2rem', fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif' }}>
+      <h1 style={{ fontSize: '2.5rem', fontWeight: 600, marginBottom: '2rem' }}>
         Visuals
-      </h2>
+      </h1>
 
       <div
         style={{
@@ -33,6 +34,6 @@ export default function VisualsPage() {
           }}
         />
       </div>
-    </section>
-  )
+    </main>
+  );
 }
