@@ -1,3 +1,6 @@
+// app/visuals/page.tsx
+import StudioVisuals from './StudioVisuals'
+
 export const metadata = {
   title: 'Visuals | 3000',
 };
@@ -9,6 +12,7 @@ export default function VisualsPage() {
         Visuals
       </h1>
 
+      {/* 기존 하드코딩된 카드 */}
       <div
         style={{
           position: 'relative',
@@ -34,6 +38,9 @@ export default function VisualsPage() {
           }}
         />
       </div>
+
+      {/* 스튜디오에서 불러온 카드들 */}
+      <StudioVisuals />
     </main>
   );
 }

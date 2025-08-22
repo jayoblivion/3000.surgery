@@ -1,28 +1,64 @@
-'use client'
-
-/**
- * This configuration is used to for the Sanity Studio that’s mounted on the `/app/studio/[[...tool]]/page.tsx` route
- */
-
-import {visionTool} from '@sanity/vision'
+// sanity.config.ts
 import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
+import {deskTool} from 'sanity/desk'
+import {visionTool} from '@sanity/vision'
 
-// Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
-import {apiVersion, dataset, projectId} from './sanity/env'
-import {schema} from './sanity/schemaTypes'
-import {structure} from './sanity/structure'
+// --- post ---
+const post = {
+  name: 'post',
+  title: 'Post',
+  type: 'document',
+  fields: [
+    {name: 'title', type: 'string', title: 'Title'},
+    {name: 'slug', type: 'slug', title: 'Slug', options: {source: 'title'}},
+    {name: 'publishedAt', type: 'datetime', title: 'Published at'},
+    {name: 'body', type: 'array', title: 'Body', of: [{type: 'block'}]},
+  ],
+}
+
+// --- sound (섹션 추가) ---
+const sound = {
+  name: 'sound',
+  title: 'Sound',
+  type: 'document',
+  fields: [
+    {name: 'title', type: 'string', title: 'Title', validation: (Rule:any)=>Rule.required()},
+    {
+      name: 'section',
+      title: 'Section',
+      type: 'string',
+      options: { list: [
+        {title: '데모', value: 'demo'},
+        {title: '믹스테입', value: 'mixtape'},
+        {title: '리믹스', value: 'remix'},
+      ]},
+      validation: (Rule:any)=>Rule.required(),
+    },
+    {name: 'url', type: 'url', title: 'URL', description: 'YouTube 또는 SoundCloud 주소', validation: (Rule:any)=>Rule.required()},
+    {name: 'publishedAt', type: 'datetime', title: 'Published at'},
+  ],
+}
+
+// --- visual ---
+const visual = {
+  name: 'visual',
+  title: 'Visual',
+  type: 'document',
+  fields: [
+    {name: 'title', type: 'string', title: 'Title', validation: (Rule:any)=>Rule.required()},
+    {name: 'url', type: 'url', title: 'URL', description: 'YouTube 또는 Vimeo 주소', validation: (Rule:any)=>Rule.required()},
+    {name: 'publishedAt', type: 'datetime', title: 'Published at'},
+  ],
+}
 
 export default defineConfig({
+  name: 'default',
+  title: 'Studio',
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
   basePath: '/studio',
-  projectId,
-  dataset,
-  // Add and edit the content schema in the './sanity/schemaTypes' folder
-  schema,
-  plugins: [
-    structureTool({structure}),
-    // Vision is for querying with GROQ from inside the Studio
-    // https://www.sanity.io/docs/the-vision-plugin
-    visionTool({defaultApiVersion: apiVersion}),
-  ],
+  plugins: [deskTool(), visionTool()],
+  schema: {
+    types: [post, sound, visual],
+  },
 })
