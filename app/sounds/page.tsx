@@ -3,7 +3,6 @@ export const metadata = {
 };
 
 import Sounds from './SoundsClient'
-import StudioSounds from './StudioSounds'
 
 export default function SoundsPage() {
   return (
@@ -12,7 +11,6 @@ export default function SoundsPage() {
       <Sounds />
 
       {/* 스튜디오에서 불러온 카드들 */}
-      <StudioSounds />
     </>
   )
 }
