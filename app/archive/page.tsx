@@ -47,7 +47,7 @@ export default async function ArchivePage() {
 
         {posts.length === 0 ? (
           <p style={{ color: '#666' }}>
-            아직 게시물이 없습니다. /studio에서 Post를 만들고 Publish 해주세요.
+            이따 봐요.
           </p>
         ) : (
           <ul
