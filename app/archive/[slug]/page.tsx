@@ -1,14 +1,15 @@
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
-import {client} from '../../../sanity/lib/client'
-import {PortableText} from '@portabletext/react'
-import type {Metadata} from 'next'
+import { client } from '../../../sanity/lib/client'
+import { PortableText } from '@portabletext/react'
+import { urlFor } from '@/lib/sanityImage' // ✅ urlFor 유틸 가져오기
+import type { Metadata } from 'next'
 
 type Post = {
   _id: string
   title?: string
-  slug?: {current: string}
+  slug?: { current: string }
   publishedAt?: string
   body?: any
 }
@@ -32,24 +33,42 @@ async function getPost(slug: string): Promise<Post | null> {
   return await client.fetch(query, { slug })
 }
 
+// ✅ 이미지 포함한 PortableText 구성
+const components = {
+  types: {
+    image: ({ value }: any) => {
+      if (!value?.asset?._ref) return null
+      return (
+        <img
+          src={urlFor(value).width(800).url()}
+          alt={value.alt || ' '}
+          style={{ borderRadius: 8, margin: '2rem 0', maxWidth: '100%' }}
+        />
+      )
+    }
+  }
+}
+
 export default async function PostPage({ params }: { params: Params }) {
   try {
     const post = await getPost(params.slug)
 
     if (!post) {
-      return <p style={{color:'#666'}}>게시물을 찾을 수 없습니다.</p>
+      return <p style={{ color: '#666' }}>게시물을 찾을 수 없습니다.</p>
     }
 
     return (
       <article>
-        <h1 style={{fontSize:'2rem', marginBottom:'.5rem'}}>{post.title || '(제목 없음)'}</h1>
+        <h1 style={{ fontSize: '2rem', marginBottom: '.5rem' }}>
+          {post.title || '(제목 없음)'}
+        </h1>
         {post.publishedAt && (
           <p style={{ color: '#666', marginBottom: '1rem' }}>
             {new Date(post.publishedAt).toLocaleDateString('ko-KR')}
           </p>
         )}
         {post.body ? (
-          <PortableText value={post.body} />
+          <PortableText value={post.body} components={components} />
         ) : (
           <p style={{ color: '#666' }}>(본문 없음)</p>
         )}
@@ -57,7 +76,14 @@ export default async function PostPage({ params }: { params: Params }) {
     )
   } catch (err: any) {
     return (
-      <pre style={{whiteSpace:'pre-wrap', color:'crimson', background:'#fff5f5', padding:'1rem'}}>
+      <pre
+        style={{
+          whiteSpace: 'pre-wrap',
+          color: 'crimson',
+          background: '#fff5f5',
+          padding: '1rem'
+        }}
+      >
         Post 오류: {err?.message || String(err)}
       </pre>
     )
