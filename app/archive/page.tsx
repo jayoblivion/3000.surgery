@@ -1,6 +1,11 @@
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
+export const metadata = {
+  title: 'Archive | 3000',
+  description: 'Archive of posts on 3000.surgery',
+}
+
 import Link from 'next/link'
 import { client } from '../../lib/sanity'
 import PortableBody from '@/components/PortableBody'
