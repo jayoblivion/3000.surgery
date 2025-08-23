@@ -10,7 +10,7 @@ type Post = {
   title: string
   slug?: { current: string }
   publishedAt?: string
-  body?: any // Portable Text 필드
+  body?: any
 }
 
 async function getPosts(): Promise<Post[]> {
@@ -29,14 +29,35 @@ export default async function ArchivePage() {
     const posts = await getPosts()
 
     return (
-      <section style={{ padding: '2rem' }}>
-        <h1 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>Archive</h1>
+      <section
+        style={{
+          padding: '2rem',
+          fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif',
+        }}
+      >
+        <h1
+          style={{
+            fontSize: '2.5rem',
+            fontWeight: 600,
+            marginBottom: '2rem',
+          }}
+        >
+          Archive
+        </h1>
+
         {posts.length === 0 ? (
           <p style={{ color: '#666' }}>
             아직 게시물이 없습니다. /studio에서 Post를 만들고 Publish 해주세요.
           </p>
         ) : (
-          <ul style={{ display: 'grid', gap: '2rem', padding: 0, listStyle: 'none' }}>
+          <ul
+            style={{
+              display: 'grid',
+              gap: '2rem',
+              padding: 0,
+              listStyle: 'none',
+            }}
+          >
             {posts.map((p) => (
               <li
                 key={p._id}
@@ -47,14 +68,28 @@ export default async function ArchivePage() {
                   background: '#fff',
                 }}
               >
-                <h2 style={{ margin: '0 0 0.5rem 0', fontSize: '1.25rem' }}>
-                  <Link href={`/archive/${p.slug?.current ?? ''}`} style={{ textDecoration: 'underline' }}>
+                <h2
+                  style={{
+                    margin: '0 0 0.5rem 0',
+                    fontSize: '1.25rem',
+                  }}
+                >
+                  <Link
+                    href={`/archive/${p.slug?.current ?? ''}`}
+                    style={{ textDecoration: 'underline' }}
+                  >
                     {p.title || '(제목 없음)'}
                   </Link>
                 </h2>
 
                 {p.publishedAt && (
-                  <div style={{ color: '#888', fontSize: '0.9rem', marginBottom: '1rem' }}>
+                  <div
+                    style={{
+                      color: '#888',
+                      fontSize: '0.9rem',
+                      marginBottom: '1rem',
+                    }}
+                  >
                     {new Date(p.publishedAt).toLocaleDateString('ko-KR')}
                   </div>
                 )}
@@ -72,7 +107,14 @@ export default async function ArchivePage() {
     )
   } catch (err: any) {
     return (
-      <pre style={{ whiteSpace: 'pre-wrap', color: 'crimson', background: '#fff5f5', padding: '1rem' }}>
+      <pre
+        style={{
+          whiteSpace: 'pre-wrap',
+          color: 'crimson',
+          background: '#fff5f5',
+          padding: '1rem',
+        }}
+      >
         Archive 오류: {err?.message || String(err)}
       </pre>
     )
