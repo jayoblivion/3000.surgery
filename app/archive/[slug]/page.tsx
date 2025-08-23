@@ -1,4 +1,5 @@
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 import {client} from '../../../sanity/lib/client'
 import {PortableText} from '@portabletext/react'

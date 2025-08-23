@@ -2,19 +2,7 @@
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
-
-// --- post ---
-const post = {
-  name: 'post',
-  title: 'Post',
-  type: 'document',
-  fields: [
-    {name: 'title', type: 'string', title: 'Title'},
-    {name: 'slug', type: 'slug', title: 'Slug', options: {source: 'title'}},
-    {name: 'publishedAt', type: 'datetime', title: 'Published at'},
-    {name: 'body', type: 'array', title: 'Body', of: [{type: 'block'}]},
-  ],
-}
+import post from './sanity/schemas/post'
 
 // --- sound (섹션 추가) ---
 const sound = {

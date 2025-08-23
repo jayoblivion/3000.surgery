@@ -1,10 +1,14 @@
+// app/archive/page.tsx
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 import Link from 'next/link'
-import {client} from '../../sanity/lib/client'
+import { client } from '../../lib/sanity'
 
 type Post = {
   _id: string
   title: string
-  slug?: {current: string}
+  slug?: { current: string }
   publishedAt?: string
 }
 
@@ -14,8 +18,6 @@ async function getPosts(): Promise<Post[]> {
   }`
   return await client.fetch(query)
 }
-
-export const revalidate = 0
 
 export default async function ArchivePage() {
   try {
@@ -31,7 +33,7 @@ export default async function ArchivePage() {
             {posts.map((p) => (
               <li key={p._id} style={{border:'1px solid #ddd', padding:'1rem', borderRadius:8}}>
                 <h2 style={{margin:'0 0 .5rem 0'}}>
-                  <Link href={`/archive/${p.slug?.current}`} style={{textDecoration:'underline'}}>
+                  <Link href={`/archive/${p.slug?.current ?? ''}`} style={{textDecoration:'underline'}}>
                     {p.title || '(제목 없음)'}
                   </Link>
                 </h2>
